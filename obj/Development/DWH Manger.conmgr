@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DWH Manger"
+  DTS:DTSID="{4323D3A4-DB94-4FA8-929B-34A4E64D937F}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=TN3548652W1;Initial Catalog=DataWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Cars-Sales-{4323D3A4-DB94-4FA8-929B-34A4E64D937F}TN3548652W1.DataWH;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

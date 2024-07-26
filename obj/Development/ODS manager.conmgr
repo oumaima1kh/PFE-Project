@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ODS manager"
+  DTS:DTSID="{FA21ED2E-140F-4166-B9DD-D68D04780833}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=TN3548652W1;Initial Catalog=ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Cars-Sales-{FA21ED2E-140F-4166-B9DD-D68D04780833}TN3548652W1.OperationalDS;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

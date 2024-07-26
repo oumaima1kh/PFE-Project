@@ -1,0 +1,3052 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/9/2024 12:41:10 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="TN3548652W1"
+  DTS:CreatorName="MEA\BU638KR"
+  DTS:DTSID="{83698AAB-F2CC-43AE-BDA1-741E63871475}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="8192"
+  DTS:ObjectName="DWH_Dim_Fuel"
+  DTS:PackageType="5"
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{0828327A-8320-4554-8125-9EF810B4E72F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Cars File manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{0A59664F-60A5-4CE5-83C5-57A1150CE72E}"
+      DTS:ObjectName="Cars File manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\CarsSales\CarsData.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CF781A36-324A-40AB-8B36-D875531B79FD}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::Archive]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Archive">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Cars-Archive</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{514BDCC8-8914-42BE-9F4C-F9247582AC2A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_DBTIMESTAMP) GETDATE()"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EndTime">
+      <DTS:VariableValue
+        DTS:DataType="7">7/7/2024 3:14:50 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{039A476D-8900-4ED4-8418-015C449198DE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C6B0296B-C1F4-4805-9430-BAC031A270F2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\CarsSales\CarsData.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1A87470D-2819-49A6-8F46-D22CBFCCA995}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="NB_Lignes_ODS_TEMP_Fuel">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AFD98BC6-3620-4A8B-99C4-72764178EC06}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="NB_Lignes_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C87EA070-BD3E-4FE4-8F3D-7BD4EDE9C82E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="NB_Ligne_Dim_Fuel">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{451FDF52-E761-43EF-AF81-113E6E8EB790}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="StartTime">
+      <DTS:VariableValue
+        DTS:DataType="7">7/2/2024 9:34:55 AM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\End LOG"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f8db402b-0a7e-4193-8da7-c03fa75335ee}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="End LOG"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FA21ED2E-140F-4166-B9DD-D68D04780833}"
+          SQLTask:SqlStatementSource="EXEC InsertEndLogg&#xA;    @PackageName = ?,&#xA;    @EndDate = ?,&#xA;    @PNB_Lignes_Source = ?,&#xA;    @PNB_Lignes_ODS_TEMP = ?,&#xA;    @PNB_Lignes_Dim = ?&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::EndTime"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::NB_Lignes_Source"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::NB_Lignes_ODS_TEMP_Fuel"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="User::NB_Ligne_Dim_Fuel"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\LOAD Dim_Fuel"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{95975B87-1667-48AB-BDE6-82BEB9197D5C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LOAD Dim_Fuel">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{2DEF54C4-E8CF-44D4-96E5-1629FAE6533D}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Insert Into Dim_Fuel"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Read Cars Data"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+    [FuelKey],
+    [Fuel] AS FuelType
+FROM [ODS].[dbo].[TEMP_Fuel]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Connections[OleDbConnection]"
+                      connectionManagerID="{FA21ED2E-140F-4166-B9DD-D68D04780833}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ODS manager]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Output].Columns[FuelKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Output].ExternalColumns[FuelKey]"
+                          length="255"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Output].Columns[FuelKey]"
+                          name="FuelKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Output].Columns[FuelType]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Output].ExternalColumns[FuelType]"
+                          length="255"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Output].Columns[FuelType]"
+                          name="FuelType"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Output].ExternalColumns[FuelKey]"
+                          dataType="wstr"
+                          length="255"
+                          name="FuelKey" />
+                        <externalMetadataColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Output].ExternalColumns[FuelType]"
+                          dataType="wstr"
+                          length="255"
+                          name="FuelType" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[FuelKey]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[FuelKey]"
+                          name="FuelKey" />
+                        <outputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[FuelType]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[FuelType]"
+                          name="FuelType" />
+                        <outputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Sort By Fuel Type"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort By Fuel Type"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Sort By Fuel Type.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Sort By Fuel Type.Inputs[Sort Input].Columns[FuelKey]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FuelKey"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Output].Columns[FuelKey]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Sort By Fuel Type.Inputs[Sort Input].Columns[FuelType]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FuelType"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Output].Columns[FuelType]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Sort By Fuel Type.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Sort By Fuel Type.Outputs[Sort Output].Columns[FuelKey]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Sort By Fuel Type.Outputs[Sort Output].Columns[FuelKey]"
+                          name="FuelKey"
+                          sortKeyPosition="2">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Output].Columns[FuelKey]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Sort By Fuel Type.Outputs[Sort Output].Columns[FuelType]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Sort By Fuel Type.Outputs[Sort Output].Columns[FuelType]"
+                          name="FuelType"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Output].Columns[FuelType]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Unicity Sheck"
+                  componentClassID="Microsoft.Aggregate"
+                  contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+                  description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+                  name="Unicity Sheck"
+                  version="3">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                      name="CountDistinctScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                      name="CountDistinctKeys" />
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                      name="AutoExtendFactor">25</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Unicity Sheck.Inputs[Aggregate Input 1]"
+                      name="Aggregate Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Unicity Sheck.Inputs[Aggregate Input 1].Columns[FuelKey]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FuelKey"
+                          cachedSortKeyPosition="2"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Sort By Fuel Type.Outputs[Sort Output].Columns[FuelKey]" />
+                        <inputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Unicity Sheck.Inputs[Aggregate Input 1].Columns[FuelType]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FuelType"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Sort By Fuel Type.Outputs[Sort Output].Columns[FuelType]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Unicity Sheck.Outputs[Aggregate Output 1]"
+                      name="Aggregate Output 1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                          name="KeyScale"
+                          typeConverter="KeyScaleType">0</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                          name="Keys" />
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Unicity Sheck.Outputs[Aggregate Output 1].Columns[FuelKey]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Unicity Sheck.Outputs[Aggregate Output 1].Columns[FuelKey]"
+                          name="FuelKey">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the ID of the input column used in the aggregation."
+                              name="AggregationColumnId">#{Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Sort By Fuel Type.Outputs[Sort Output].Columns[FuelKey]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the type of aggregation."
+                              name="AggregationType"
+                              typeConverter="AggregationType">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                              name="IsBig">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the string comparison options."
+                              name="AggregationComparisonFlags">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Unicity Sheck.Outputs[Aggregate Output 1].Columns[FuelType]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Unicity Sheck.Outputs[Aggregate Output 1].Columns[FuelType]"
+                          name="FuelType">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the ID of the input column used in the aggregation."
+                              name="AggregationColumnId">#{Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Sort By Fuel Type.Outputs[Sort Output].Columns[FuelType]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the type of aggregation."
+                              name="AggregationType"
+                              typeConverter="AggregationType">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                              name="IsBig">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the string comparison options."
+                              name="AggregationComparisonFlags">0</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="Update Dim_Fuel"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">MERGE dbo.Dim_Fuel AS target
+USING (
+    SELECT 
+        ? AS FuelKey,
+        ? AS FuelType
+) AS source
+ON target.FuelKey = source.FuelKey
+WHEN NOT MATCHED BY TARGET THEN
+    INSERT (FuelKey, FuelType, StartDate)
+    VALUES (source.FuelKey, source.FuelType, GETDATE());
+</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel.Connections[OleDbConnection]"
+                      connectionManagerID="{4323D3A4-DB94-4FA8-929B-34A4E64D937F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[DWH Manger]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel.Inputs[OLE DB Command Input].Columns[FuelKey]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FuelKey"
+                          externalMetadataColumnId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Unicity Sheck.Outputs[Aggregate Output 1].Columns[FuelKey]" />
+                        <inputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel.Inputs[OLE DB Command Input].Columns[FuelType]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FuelType"
+                          externalMetadataColumnId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Unicity Sheck.Outputs[Aggregate Output 1].Columns[FuelType]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="wstr"
+                          length="255"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="wstr"
+                          length="255"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel.Paths[Aggregate Output 1]"
+                  endId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel.Inputs[OLE DB Command Input]"
+                  name="Aggregate Output 1"
+                  startId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Unicity Sheck.Outputs[Aggregate Output 1]" />
+                <path
+                  refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel.Paths[OLE DB Source Output]"
+                  endId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Sort By Fuel Type.Inputs[Sort Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel.Paths[Sort Output]"
+                  endId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Unicity Sheck.Inputs[Aggregate Input 1]"
+                  name="Sort Output"
+                  startId="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Sort By Fuel Type.Outputs[Sort Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\LOAD Dim_Fuel\NB_Lignes_Dim_Fuel"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F80897D9-55DE-4C35-A21E-60E9286A2336}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="NB_Lignes_Dim_Fuel"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{4323D3A4-DB94-4FA8-929B-34A4E64D937F}"
+              SQLTask:SqlStatementSource="SELECT COUNT(*) FROM Dim_Fuel"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::NB_Ligne_Dim_Fuel" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\LOAD Dim_Fuel.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{5CE71C28-C1FE-48DD-B6A6-991657534B31}"
+          DTS:From="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\LOAD Dim_Fuel\NB_Lignes_Dim_Fuel" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\LOAD ODS"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{6674414a-db59-4a62-8e0b-9ecb59cf077e}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LOAD ODS">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\LOAD ODS\Foreach Cars Files"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{d2af419b-f033-4e81-9873-6c7698d45fe6}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach Cars Files">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachFileEnumerator"
+            DTS:DTSID="{97bae414-84b5-4fff-80b5-5fe3fc4dd6b4}"
+            DTS:ObjectName="{9FAD50F4-367B-4284-AD9D-B1C8A6BA70F1}">
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="C:\CarsSales" />
+                <FEFEProperty
+                  FileSpec="*.xlsx*" />
+                <FEFEProperty
+                  FileNameRetrievalType="0" />
+                <FEFEProperty
+                  Recurse="0" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\LOAD ODS\Foreach Cars Files\Archive Files"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="File System Task"
+              DTS:DTSID="{d0c937cd-2ed8-47c2-a3ec-d4d016f0b026}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Archive Files"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskOverwriteDestFile="True"
+                  TaskSourcePath="User::FilePath"
+                  TaskIsSourceVariable="True"
+                  TaskDestinationPath="User::Archive"
+                  TaskIsDestinationVariable="True" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\LOAD ODS\Foreach Cars Files\Get File Name"
+              DTS:CreationName="Microsoft.ScriptTask"
+              DTS:Description="Script Task"
+              DTS:DTSID="{815743d6-3157-4ba1-b7da-ea612939eac0}"
+              DTS:ExecutableType="Microsoft.ScriptTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Get File Name"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ScriptProject
+                  Name="ST_b07531c64ea94bd38774d95822af69fd"
+                  VSTAMajorVersion="16"
+                  VSTAMinorVersion="0"
+                  Language="CSharp"
+                  ReadOnlyVariables="User::FilePath"
+                  ReadWriteVariables="User::FileName">
+                  <ProjectItem
+                    Name="Properties\Settings.settings"
+                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+                  <ProjectItem
+                    Name="Properties\Resources.resx"
+                    Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+                  <ProjectItem
+                    Name="Properties\Settings.Designer.cs"
+                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_ace6cad2dc0a40399787926eac7251f4.Properties.Settings.get_Default():ST_ace6cad2dc0a40399787926eac7251f4.Properties.Sett" +
+    "ings")]
+
+namespace ST_ace6cad2dc0a40399787926eac7251f4.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+                  <ProjectItem
+                    Name="ScriptMain.cs"
+                    Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+using System.IO;
+#endregion
+
+namespace ST_ace6cad2dc0a40399787926eac7251f4
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+		/// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+		public void Main()
+		{
+            // TODO: Add your code here
+            string fullPath = Dts.Variables["User::FilePath"].Value.ToString();
+            string fileName = Path.GetFileName(fullPath);
+            Dts.Variables["User::FileName"].Value = fileName;
+            Dts.TaskResult = (int)ScriptResults.Success;
+        }
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+                  <ProjectItem
+                    Name="Project"
+                    Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="3.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:Language>msBuild</msb:Language>
+    <msb:CodeName>ST_ace6cad2dc0a40399787926eac7251f4</msb:CodeName>
+    <msb:DisplayName>ST_ace6cad2dc0a40399787926eac7251f4</msb:DisplayName>
+    <msb:ProjectId>{EB6A4C78-CD80-4C34-925E-6A463EB70088}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_b07531c64ea94bd38774d95822af69fd.csproj" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+                  <ProjectItem
+                    Name="ST_b07531c64ea94bd38774d95822af69fd.csproj"
+                    Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?><Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"><PropertyGroup><ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids><Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration><Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform><ProductVersion>8.0.30703</ProductVersion><SchemaVersion>2.0</SchemaVersion><ProjectGuid>{722F790D-A93C-433B-8ABC-D973F86ED662}</ProjectGuid><OutputType>Library</OutputType><AppDesignerFolder>Properties</AppDesignerFolder><RootNamespace>ST_ace6cad2dc0a40399787926eac7251f4</RootNamespace><AssemblyName>ST_b07531c64ea94bd38774d95822af69fd</AssemblyName><TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion><FileAlignment>512</FileAlignment><ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Debug' "><DebugSymbols>true</DebugSymbols><DebugType>full</DebugType><Optimize>false</Optimize><OutputPath>.\bin\Debug\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>DEBUG;TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Release' "><DebugSymbols>false</DebugSymbols><Optimize>true</Optimize><OutputPath>.\bin\Release\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><ItemGroup><Reference Include="System" /><Reference Include="System.Data" /><Reference Include="System.Windows.Forms" /><Reference Include="System.Xml" /><Reference Include="Microsoft.SqlServer.ManagedDTS, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /><Reference Include="Microsoft.SqlServer.ScriptTask, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /></ItemGroup><ItemGroup><AppDesigner Include="Properties\" /><Compile Include="Properties\AssemblyInfo.cs"><SubType>Code</SubType></Compile><EmbeddedResource Include="Properties\Resources.resx"><Generator>ResXFileCodeGenerator</Generator><LastGenOutput>Resources.Designer.cs</LastGenOutput></EmbeddedResource><Compile Include="Properties\Resources.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Resources.resx</DependentUpon></Compile><None Include="Properties\Settings.settings"><Generator>SettingsSingleFileGenerator</Generator><LastGenOutput>Settings.Designer.cs</LastGenOutput></None><Compile Include="Properties\Settings.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Settings.settings</DependentUpon></Compile><Compile Include="ScriptMain.cs"><SubType>Code</SubType></Compile></ItemGroup><!-- Include the build rules for a C# project.--><Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" /><ProjectExtensions><VisualStudio><FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}"><ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" /><Host Name="ScriptTask" /><ProjectClient><HostIdentifier>SSIS_ST160</HostIdentifier></ProjectClient></FlavorProperties></VisualStudio></ProjectExtensions></Project>]]></ProjectItem>
+                  <ProjectItem
+                    Name="Properties\AssemblyInfo.cs"
+                    Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_ace6cad2dc0a40399787926eac7251f4")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("EY")]
+[assembly: AssemblyProduct("ST_ace6cad2dc0a40399787926eac7251f4")]
+[assembly: AssemblyCopyright("Copyright @ EY 2024")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                  <ProjectItem
+                    Name="Properties\Resources.Designer.cs"
+                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_ace6cad2dc0a40399787926eac7251f4.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_ace6cad2dc0a40399787926eac7251f4.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_ace6cad2dc0a40399787926eac7251f4.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_ace6cad2dc0a40399787926eac7251f4.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_ace6cad2dc0a40399787926eac7251f4.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+                  <BinaryItem
+                    Name="ST_ace6cad2dc0a40399787926eac7251f4.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAPHkZmYAAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAAEi4A
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAMAtAABPAAAAAEAAAIAEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAGA4AAAAgAAAAEAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAIAEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAD0
+LQAAAAAAAEgAAAACAAUAECEAAPgLAAABAAAAAAAAAAgtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAgBNAAAAAQAAEQIoEAAACm8RAAAKcgEAAHBvEgAACm8T
+AAAKbxQAAAooFQAACgoCKBAAAApvEQAACnIfAABwbxIAAAoGbxYAAAoCKBAAAAoWbxcAAAoqHgIo
+GAAACioeAigZAAAKKq5+AQAABC0ecj0AAHDQAwAAAigaAAAKbxsAAApzHAAACoABAAAEfgEAAAQq
+Gn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4CKB0AAAoqLnMIAAAGgAMAAAQqAEJTSkIBAAEAAAAAAAwA
+AAB2NC4wLjMwMzE5AAAAAAUAbAAAANADAAAjfgAAPAQAAIAFAAAjU3RyaW5ncwAAAAC8CQAAsAAA
+ACNVUwBsCgAAEAAAACNHVUlEAAAAfAoAAHwBAAAjQmxvYgAAAAAAAAACAAABVx2iAQkDAAAA+gEz
+ABYAAAEAAAAeAAAABQAAAAYAAAAJAAAAAQAAAB0AAAACAAAAEAAAAAEAAAACAAAAAwAAAAQAAAAB
+AAAABAAAAAEAAAABAAAAAACaAwEAAAAAAAYAOwJqBAYAygJqBAYAhwFXBA8A3gQAAAYAtAEYBAYA
+HgIYBAYA/wEYBAYAsQIYBAYAWwIYBAYAdAIYBAYAywEYBAYA5gECAwoAjwJJAwoABgFJAwYA0gPL
+AwYAagFXBAYAUQXLAwYAOgSKBAYAKgQDBA4AOgGEAw4AmwGEAw4AIgHuAwYATwFqBAoAcgNJAxIA
+IAWxABIAeACxAAYAJQMuAAYA0QDLAwYAgQDLAwYAdwUYBAAAAAAlAAAAAAABAAEAAQAQAOMDAQA5
+AAEAAQAAABAAkQTtBEUAAQADAAABEAAqBe0EWQADAAcAAwEAAEMFAAA9AAQACgARANcDcAARAPYA
+dAARAGgAeAAGBlcAfABWgDMFfwBWgNYAfwBQIAAAAACGAOkDBgABAKkgAAAAAIYYSgQGAAEAsSAA
+AAAAgxhKBAYAAQC5IAAAAACTCDYEgwABAOUgAAAAAJMI3gCIAAEA7CAAAAAAkwjqAI0AAQD0IAAA
+AACWCFgFkwACAPsgAAAAAIYYSgQGAAIAAyEAAAAAkRhQBJgAAgAAAAEA/AIJAEoEAQARAEoEBgAZ
+AEoECgApAEoEEAAxAEoEEAA5AEoEEABBAEoEEABJAEoEEABRAEoEEABZAEoEEABhAEoEEABpAEoE
+BgCBAEoEBgCpAEoEFQC5AEoEBgBxADsFHwDBABwFJADJAMIDKQDRAOgCLwCJABwDMwDZAKUANwDR
+APICPADBAGQFAQBxAEoEBgCJAEoEBgDhAJMAQQDhAHMFSACRAEoETQCxAEoEBgAIABQAZgAIABgA
+awApAHMA0wAuAAsAqwAuABMAtAAuABsA0wAuACMA3AAuACsABQEuADMABQEuADsACwEuAEMA3AAu
+AEsAEwEuAFMABQEuAFsALAFDAGMAawBJAHMA0wBhAHsAawBjAGsAawAbAAMAAQAEAAMAAAA6BJwA
+AAD+AKEAAABcBaYAAgAEAAMAAgAFAAUAAQAGAAUAAgAHAAcABIAAAAEAAADfIohfAAAAAAAAAQAA
+AAQAAAAAAAAAAAAAAFQAXwAAAAAAEAAAAAAAAAAAAAAAXQAqAwAAAAAEAAAAAAAAAAAAAABUAMsD
+AAAAABAAAAAAAAAAAAAAAF0AOAAAAAAAAAAAAAEAAACbBAAABQACAAAAAAAAU1RfYWNlNmNhZDJk
+YzBhNDAzOTk3ODc5MjZlYWM3MjUxZjQAPE1vZHVsZT4AU3lzdGVtLklPAE1pY3Jvc29mdC5TcWxT
+ZXJ2ZXIuTWFuYWdlZERUUwB2YWx1ZV9fAG1zY29ybGliAGRlZmF1bHRJbnN0YW5jZQBWYXJpYWJs
+ZQBSdW50aW1lVHlwZUhhbmRsZQBHZXRUeXBlRnJvbUhhbmRsZQBHZXRGaWxlTmFtZQBNaWNyb3Nv
+ZnQuU3FsU2VydmVyLkR0cy5SdW50aW1lAFR5cGUARmFpbHVyZQBnZXRfQ3VsdHVyZQBzZXRfQ3Vs
+dHVyZQByZXNvdXJjZUN1bHR1cmUAVlNUQVJUU2NyaXB0T2JqZWN0TW9kZWxCYXNlAEFwcGxpY2F0
+aW9uU2V0dGluZ3NCYXNlAEVkaXRvckJyb3dzYWJsZVN0YXRlAENvbXBpbGVyR2VuZXJhdGVkQXR0
+cmlidXRlAERlYnVnZ2VyTm9uVXNlckNvZGVBdHRyaWJ1dGUARGVidWdnYWJsZUF0dHJpYnV0ZQBF
+ZGl0b3JCcm93c2FibGVBdHRyaWJ1dGUAQXNzZW1ibHlUaXRsZUF0dHJpYnV0ZQBBc3NlbWJseVRy
+YWRlbWFya0F0dHJpYnV0ZQBUYXJnZXRGcmFtZXdvcmtBdHRyaWJ1dGUAQXNzZW1ibHlDb25maWd1
+cmF0aW9uQXR0cmlidXRlAEFzc2VtYmx5RGVzY3JpcHRpb25BdHRyaWJ1dGUAQ29tcGlsYXRpb25S
+ZWxheGF0aW9uc0F0dHJpYnV0ZQBBc3NlbWJseVByb2R1Y3RBdHRyaWJ1dGUAQXNzZW1ibHlDb3B5
+cmlnaHRBdHRyaWJ1dGUAU1NJU1NjcmlwdFRhc2tFbnRyeVBvaW50QXR0cmlidXRlAEFzc2VtYmx5
+Q29tcGFueUF0dHJpYnV0ZQBSdW50aW1lQ29tcGF0aWJpbGl0eUF0dHJpYnV0ZQBnZXRfVmFsdWUA
+c2V0X1ZhbHVlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAVG9TdHJpbmcAUGF0aABN
+aWNyb3NvZnQuU3FsU2VydmVyLlNjcmlwdFRhc2sATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuVGFz
+a3MuU2NyaXB0VGFzawBTY3JpcHRPYmplY3RNb2RlbABTeXN0ZW0uQ29tcG9uZW50TW9kZWwAU1Rf
+YWNlNmNhZDJkYzBhNDAzOTk3ODc5MjZlYWM3MjUxZjQuZGxsAGdldF9JdGVtAFN5c3RlbQBFbnVt
+AHJlc291cmNlTWFuAFNjcmlwdE1haW4AU3lzdGVtLkNvbmZpZ3VyYXRpb24AU3lzdGVtLkdsb2Jh
+bGl6YXRpb24AU3lzdGVtLlJlZmxlY3Rpb24AQ3VsdHVyZUluZm8AZ2V0X1Jlc291cmNlTWFuYWdl
+cgAuY3RvcgAuY2N0b3IAU3lzdGVtLkRpYWdub3N0aWNzAFN5c3RlbS5SdW50aW1lLkNvbXBpbGVy
+U2VydmljZXMAU3lzdGVtLlJlc291cmNlcwBTVF9hY2U2Y2FkMmRjMGE0MDM5OTc4NzkyNmVhYzcy
+NTFmNC5Qcm9wZXJ0aWVzLlJlc291cmNlcy5yZXNvdXJjZXMARGVidWdnaW5nTW9kZXMAU1RfYWNl
+NmNhZDJkYzBhNDAzOTk3ODc5MjZlYWM3MjUxZjQuUHJvcGVydGllcwBnZXRfVmFyaWFibGVzAFNl
+dHRpbmdzAFN1Y2Nlc3MAZ2V0X0R0cwBTY3JpcHRSZXN1bHRzAE9iamVjdABnZXRfRGVmYXVsdABz
+ZXRfVGFza1Jlc3VsdABnZXRfQXNzZW1ibHkAAB1VAHMAZQByADoAOgBGAGkAbABlAFAAYQB0AGgA
+AB1VAHMAZQByADoAOgBGAGkAbABlAE4AYQBtAGUAAHFTAFQAXwBhAGMAZQA2AGMAYQBkADIAZABj
+ADAAYQA0ADAAMwA5ADkANwA4ADcAOQAyADYAZQBhAGMANwAyADUAMQBmADQALgBQAHIAbwBwAGUA
+cgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAAC3hELboB1ARYU+9jGIaGPvAAQgAQEIAyAA
+AQUgAQEREQQgAQEOBSABARFRAwcBDgQgABJhBCAAEmUFIAESaRwDIAAcAyAADgQAAQ4OBCABARwG
+AAEScRF1BCAAEnkGIAIBDhJ5CLd6XFYZNOCJCImEXc2AgMyRBAAAAAAEAQAAAAMGEkkDBhJNAwYS
+EAIGCAMGERQEAAASSQQAABJNBQABARJNBAAAEhADAAABBAgAEkkECAASTQQIABIQCAEACAAAAAAA
+HgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTVF9hY2U2Y2FkMmRj
+MGE0MDM5OTc4NzkyNmVhYzcyNTFmNAAABQEAAAAABwEAAkVZAAAYAQATQ29weXJpZ2h0IEAgRVkg
+MjAyNAAATQEAHC5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC43LjIBAFQOFEZyYW1ld29ya0Rpc3Bs
+YXlOYW1lFC5ORVQgRnJhbWV3b3JrIDQuNy4yAAC0AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNv
+dXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9
+bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2Vz
+LlJ1bnRpbWVSZXNvdXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAA6C0AAAAAAAAAAAAAAi4A
+AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPQtAAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3Jl
+ZS5kbGwAAAAAAP8lACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
+AABIAAAAWEAAACIEAAAAAAAAAAAAACIENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
+AAAAAAC9BO/+AAABAAAAAQCIX98iAAABAIhf3yI/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
+RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
+AG4AAAAAAAAAsASCAwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABeAwAAAQAwADAA
+MAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAJgADAAEAQwBvAG0AcABh
+AG4AeQBOAGEAbQBlAAAAAABFAFkAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkA
+bwBuAAAAAABTAFQAXwBhAGMAZQA2AGMAYQBkADIAZABjADAAYQA0ADAAMwA5ADkANwA4ADcAOQAy
+ADYAZQBhAGMANwAyADUAMQBmADQAAAA+AA8AAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEA
+LgAwAC4AOAA5ADIANwAuADIANAA0ADUANgAAAAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBt
+AGUAAABTAFQAXwBhAGMAZQA2AGMAYQBkADIAZABjADAAYQA0ADAAMwA5ADkANwA4ADcAOQAyADYA
+ZQBhAGMANwAyADUAMQBmADQALgBkAGwAbAAAAEwAFAABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBn
+AGgAdAAAAEMAbwBwAHkAcgBpAGcAaAB0ACAAQAAgAEUAWQAgADIAMAAyADQAAAAqAAEAAQBMAGUA
+ZwBhAGwAVAByAGEAZABlAG0AYQByAGsAcwAAAAAAAAAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABG
+AGkAbABlAG4AYQBtAGUAAABTAFQAXwBhAGMAZQA2AGMAYQBkADIAZABjADAAYQA0ADAAMwA5ADkA
+NwA4ADcAOQAyADYAZQBhAGMANwAyADUAMQBmADQALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBj
+AHQATgBhAG0AZQAAAAAAUwBUAF8AYQBjAGUANgBjAGEAZAAyAGQAYwAwAGEANAAwADMAOQA5ADcA
+OAA3ADkAMgA2AGUAYQBjADcAMgA1ADEAZgA0AAAAQgAPAAEAUAByAG8AZAB1AGMAdABWAGUAcgBz
+AGkAbwBuAAAAMQAuADAALgA4ADkAMgA3AC4AMgA0ADQANQA2AAAAAABGAA8AAQBBAHMAcwBlAG0A
+YgBsAHkAIABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgA4ADkAMgA3AC4AMgA0ADQANQA2AAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAAAUPgAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
+                </ScriptProject>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{B0EFF80A-D178-4D15-B2E0-D527E918B7E8}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Load ODS_TEMP_Fuel"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\ADD File Name"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                      name="ADD File Name"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\ADD File Name.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\ADD File Name.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\ADD File Name.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\ADD File Name.Outputs[Derived Column Output].Columns[File Name]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="100"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\ADD File Name.Outputs[Derived Column Output].Columns[File Name]"
+                              name="File Name"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">(DT_WSTR,100)@[User::FileName]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">(DT_WSTR,100)@[User::FileName]</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\ADD File Name.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\ADD File Name.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\ADD File Name.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\ADD File Name.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\ADD File Name.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\ADD File Name.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate"
+                      componentClassID="Microsoft.Aggregate"
+                      contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+                      description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+                      name="Aggregate"
+                      version="3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                          name="KeyScale"
+                          typeConverter="KeyScaleType">0</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                          name="Keys" />
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                          name="CountDistinctScale"
+                          typeConverter="KeyScaleType">0</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                          name="CountDistinctKeys" />
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                          name="AutoExtendFactor">25</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate.Inputs[Aggregate Input 1]"
+                          name="Aggregate Input 1">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate.Inputs[Aggregate Input 1].Columns[FuelKey]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="FuelKey"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].Columns[FuelKey]" />
+                            <inputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate.Inputs[Aggregate Input 1].Columns[Fuel]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="Fuel"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].Columns[Fuel]" />
+                            <inputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate.Inputs[Aggregate Input 1].Columns[File Name]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="File Name"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\ADD File Name.Outputs[Derived Column Output].Columns[File Name]" />
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate.Outputs[Aggregate Output 1]"
+                          name="Aggregate Output 1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                              name="KeyScale"
+                              typeConverter="KeyScaleType">0</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                              name="Keys" />
+                          </properties>
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate.Outputs[Aggregate Output 1].Columns[FuelKey]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate.Outputs[Aggregate Output 1].Columns[FuelKey]"
+                              name="FuelKey">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the ID of the input column used in the aggregation."
+                                  name="AggregationColumnId">#{Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].Columns[FuelKey]}</property>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the type of aggregation."
+                                  name="AggregationType"
+                                  typeConverter="AggregationType">0</property>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                                  name="IsBig">1</property>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the string comparison options."
+                                  name="AggregationComparisonFlags">0</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate.Outputs[Aggregate Output 1].Columns[Fuel]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate.Outputs[Aggregate Output 1].Columns[Fuel]"
+                              name="Fuel">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the ID of the input column used in the aggregation."
+                                  name="AggregationColumnId">#{Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].Columns[Fuel]}</property>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the type of aggregation."
+                                  name="AggregationType"
+                                  typeConverter="AggregationType">0</property>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                                  name="IsBig">1</property>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the string comparison options."
+                                  name="AggregationComparisonFlags">0</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate.Outputs[Aggregate Output 1].Columns[File Name]"
+                              dataType="wstr"
+                              length="100"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate.Outputs[Aggregate Output 1].Columns[File Name]"
+                              name="File Name">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the ID of the input column used in the aggregation."
+                                  name="AggregationColumnId">#{Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\ADD File Name.Outputs[Derived Column Output].Columns[File Name]}</property>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the type of aggregation."
+                                  name="AggregationType"
+                                  typeConverter="AggregationType">0</property>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                                  name="IsBig">1</property>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the string comparison options."
+                                  name="AggregationComparisonFlags">0</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source"
+                      componentClassID="Microsoft.ExcelSource"
+                      contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                      description="Excel Source"
+                      name="Excel Source"
+                      usesDispositions="true"
+                      version="1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">Sheet1$</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">0</property>
+                        <property
+                          dataType="System.String"
+                          description="The mapping from parameters in the SQL command to variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[Cars File manager]"
+                          connectionManagerRefId="Package.ConnectionManagers[Cars File manager]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output]"
+                          name="Excel Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].Columns[FuelKey]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[FuelKey]"
+                              length="255"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].Columns[FuelKey]"
+                              name="FuelKey"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].Columns[Fuel]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fuel]"
+                              length="255"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].Columns[Fuel]"
+                              name="Fuel"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Country]"
+                              dataType="wstr"
+                              length="255"
+                              name="Country" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[CountryKey]"
+                              dataType="wstr"
+                              length="255"
+                              name="CountryKey" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[CarKey]"
+                              dataType="wstr"
+                              length="255"
+                              name="CarKey" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Brand]"
+                              dataType="wstr"
+                              length="255"
+                              name="Brand" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[BrandKey]"
+                              dataType="wstr"
+                              length="255"
+                              name="BrandKey" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Model]"
+                              dataType="wstr"
+                              length="255"
+                              name="Model" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[ModelKey]"
+                              dataType="wstr"
+                              length="255"
+                              name="ModelKey" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Model Year]"
+                              dataType="r8"
+                              name="Model Year" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[VehicleCategory]"
+                              dataType="wstr"
+                              length="255"
+                              name="VehicleCategory" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[VehicleCategoryKey]"
+                              dataType="wstr"
+                              length="255"
+                              name="VehicleCategoryKey" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Mod# Market Name]"
+                              dataType="wstr"
+                              length="255"
+                              name="Mod# Market Name" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Bodytype]"
+                              dataType="wstr"
+                              length="255"
+                              name="Bodytype" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fuel]"
+                              dataType="wstr"
+                              length="255"
+                              name="Fuel" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[FuelKey]"
+                              dataType="wstr"
+                              length="255"
+                              name="FuelKey" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Doors]"
+                              dataType="r8"
+                              name="Doors" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Driven wheels]"
+                              dataType="wstr"
+                              length="255"
+                              name="Driven wheels" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[CC]"
+                              dataType="r8"
+                              name="CC" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[CV]"
+                              dataType="r8"
+                              name="CV" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Gearbox]"
+                              dataType="wstr"
+                              length="255"
+                              name="Gearbox" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[GearBoxKey]"
+                              dataType="wstr"
+                              length="255"
+                              name="GearBoxKey" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Seats]"
+                              dataType="r8"
+                              name="Seats" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Speeds]"
+                              dataType="wstr"
+                              length="255"
+                              name="Speeds" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[TrimLevels]"
+                              dataType="wstr"
+                              length="255"
+                              name="TrimLevels" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Co2]"
+                              dataType="r8"
+                              name="Co2" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Ranges CO2]"
+                              dataType="wstr"
+                              length="255"
+                              name="Ranges CO2" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Regist#]"
+                              dataType="r8"
+                              name="Regist#" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Total Brand]"
+                              dataType="r8"
+                              name="Total Brand" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Total Dealer]"
+                              dataType="r8"
+                              name="Total Dealer" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Total APB]"
+                              dataType="r8"
+                              name="Total APB" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Total APB%]"
+                              dataType="r8"
+                              name="Total APB%" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Effort]"
+                              dataType="r8"
+                              name="Effort" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Total Taxes]"
+                              dataType="r8"
+                              name="Total Taxes" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[EXTRA]"
+                              dataType="r8"
+                              name="EXTRA" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[% / total]"
+                              dataType="r8"
+                              name="% / total" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[% / subt#]"
+                              dataType="r8"
+                              name="% / subt#" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[APB TAX excl]"
+                              dataType="r8"
+                              name="APB TAX excl" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Other#Contrib]"
+                              dataType="r8"
+                              name="Other#Contrib" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Year]"
+                              dataType="r8"
+                              name="Year" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Month]"
+                              dataType="r8"
+                              name="Month" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Quarter]"
+                              dataType="r8"
+                              name="Quarter" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[DateStartPromo]"
+                              dataType="date"
+                              name="DateStartPromo" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[DateEndPromo]"
+                              dataType="date"
+                              name="DateEndPromo" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[discount]"
+                              dataType="r8"
+                              name="discount" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[STOCK]"
+                              dataType="wstr"
+                              length="255"
+                              name="STOCK" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[AFSAL]"
+                              dataType="r8"
+                              name="AFSAL" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[GOVMT]"
+                              dataType="r8"
+                              name="GOVMT" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[INS]"
+                              dataType="wstr"
+                              length="255"
+                              name="INS" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[OFFER]"
+                              dataType="wstr"
+                              length="255"
+                              name="OFFER" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Finance]"
+                              dataType="r8"
+                              name="Finance" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[LEAS]"
+                              dataType="wstr"
+                              length="255"
+                              name="LEAS" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[TRADN]"
+                              dataType="r8"
+                              name="TRADN" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[SCRAP]"
+                              dataType="wstr"
+                              length="255"
+                              name="SCRAP" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[PRODUCT]"
+                              dataType="wstr"
+                              length="255"
+                              name="PRODUCT" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[SERVICE]"
+                              dataType="wstr"
+                              length="255"
+                              name="SERVICE" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[OTHER]"
+                              dataType="wstr"
+                              length="255"
+                              name="OTHER" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[ChannelKey]"
+                              dataType="wstr"
+                              length="255"
+                              name="ChannelKey" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Channels]"
+                              dataType="wstr"
+                              length="255"
+                              name="Channels" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[sous-channels]"
+                              dataType="wstr"
+                              length="255"
+                              name="sous-channels" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Type de vente]"
+                              dataType="wstr"
+                              length="255"
+                              name="Type de vente" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Dealer Name]"
+                              dataType="wstr"
+                              length="255"
+                              name="Dealer Name" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[DealerKey]"
+                              dataType="wstr"
+                              length="255"
+                              name="DealerKey" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Dealer Phone]"
+                              dataType="wstr"
+                              length="255"
+                              name="Dealer Phone" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Prime de volume(%)]"
+                              dataType="r8"
+                              name="Prime de volume(%)" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[OptionKey]"
+                              dataType="wstr"
+                              length="255"
+                              name="OptionKey" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[type d'option]"
+                              dataType="wstr"
+                              length="255"
+                              name="type d'option" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[fonctionnalités du pack]"
+                              dataType="wstr"
+                              length="255"
+                              name="fonctionnalités du pack" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[prime d'option]"
+                              dataType="r8"
+                              name="prime d'option" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Advertised]"
+                              dataType="wstr"
+                              length="255"
+                              name="Advertised" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Click]"
+                              dataType="r8"
+                              name="Click" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Attractivité Pub]"
+                              dataType="wstr"
+                              length="255"
+                              name="Attractivité Pub" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[FME Par Brand]"
+                              dataType="r8"
+                              name="FME Par Brand" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[List Price]"
+                              dataType="r8"
+                              name="List Price" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Promo Price]"
+                              dataType="r8"
+                              name="Promo Price" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[DISC de destockage]"
+                              dataType="wstr"
+                              length="255"
+                              name="DISC de destockage" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Dest Price]"
+                              dataType="wstr"
+                              length="255"
+                              name="Dest Price" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Error Output]"
+                          isErrorOut="true"
+                          name="Excel Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                            <outputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Error Output].Columns[FuelKey]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Error Output].Columns[FuelKey]"
+                              name="FuelKey" />
+                            <outputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Error Output].Columns[Fuel]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Error Output].Columns[Fuel]"
+                              name="Fuel" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="insert into TEMP_Fuel"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[TEMP_Fuel]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Connections[OleDbConnection]"
+                          connectionManagerID="{FA21ED2E-140F-4166-B9DD-D68D04780833}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[ODS manager]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Inputs[OLE DB Destination Input].Columns[FuelKey]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="FuelKey"
+                              externalMetadataColumnId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Inputs[OLE DB Destination Input].ExternalColumns[FuelKey]"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate.Outputs[Aggregate Output 1].Columns[FuelKey]" />
+                            <inputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Inputs[OLE DB Destination Input].Columns[Fuel]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="Fuel"
+                              externalMetadataColumnId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Inputs[OLE DB Destination Input].ExternalColumns[Fuel]"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate.Outputs[Aggregate Output 1].Columns[Fuel]" />
+                            <inputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Inputs[OLE DB Destination Input].Columns[File Name]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="File Name"
+                              externalMetadataColumnId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Inputs[OLE DB Destination Input].ExternalColumns[File Name]"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate.Outputs[Aggregate Output 1].Columns[File Name]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Inputs[OLE DB Destination Input].ExternalColumns[FuelKey]"
+                              dataType="wstr"
+                              length="255"
+                              name="FuelKey" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Inputs[OLE DB Destination Input].ExternalColumns[Fuel]"
+                              dataType="wstr"
+                              length="255"
+                              name="Fuel" />
+                            <externalMetadataColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Inputs[OLE DB Destination Input].ExternalColumns[File Name]"
+                              dataType="wstr"
+                              length="100"
+                              name="File Name" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\NB_Lignes_Source"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="NB_Lignes_Source">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::NB_Lignes_Source</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\NB_Lignes_Source.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\NB_Lignes_Source.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\NB_Lignes_Source.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel.Paths[Aggregate Output 1]"
+                      endId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel.Inputs[OLE DB Destination Input]"
+                      name="Aggregate Output 1"
+                      startId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate.Outputs[Aggregate Output 1]" />
+                    <path
+                      refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel.Paths[Derived Column Output]"
+                      endId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\NB_Lignes_Source.Inputs[Row Count Input 1]"
+                      name="Derived Column Output"
+                      startId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\ADD File Name.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel.Paths[Excel Source Output]"
+                      endId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\ADD File Name.Inputs[Derived Column Input]"
+                      name="Excel Source Output"
+                      startId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source.Outputs[Excel Source Output]" />
+                    <path
+                      refId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel.Paths[Row Count Output 1]"
+                      endId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate.Inputs[Aggregate Input 1]"
+                      name="Row Count Output 1"
+                      startId="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\NB_Lignes_Source.Outputs[Row Count Output 1]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\LOAD ODS\Foreach Cars Files\NB_Lignes_TEMP_Fuel"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{E3310883-D7A2-4727-AD1C-315896D420F9}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="NB_Lignes_TEMP_Fuel"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{FA21ED2E-140F-4166-B9DD-D68D04780833}"
+                  SQLTask:SqlStatementSource="SELECT COUNT(*) FROM TEMP_Fuel"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::NB_Lignes_ODS_TEMP_Fuel" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\LOAD ODS\Foreach Cars Files.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{484AFC0A-09C8-4228-81F2-8D9179434A01}"
+              DTS:From="Package\LOAD ODS\Foreach Cars Files\Get File Name"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\LOAD ODS\Foreach Cars Files.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{60DBC03A-16A7-4C3D-8B57-B130EBE75F83}"
+              DTS:From="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\LOAD ODS\Foreach Cars Files\Archive Files" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\LOAD ODS\Foreach Cars Files.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{5FF00FF1-9D4E-4148-B2E4-00C7D7384071}"
+              DTS:From="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\LOAD ODS\Foreach Cars Files\NB_Lignes_TEMP_Fuel" />
+          </DTS:PrecedenceConstraints>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{54724365-bd2d-4023-8090-4e7867fcadf3}"
+              DTS:ObjectName="{CCF0384E-6678-4A65-8A7A-03B221084BF6}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::FilePath" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{d6c9aad3-70de-4fb6-866c-e62ac0d3288d}"
+              DTS:ObjectName="{170C80B1-ACAB-465D-9E51-B6E71AC98BD0}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::FileName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\LOAD ODS\Truncate TEMP_Fuel"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{df36eed3-a408-40c1-9c34-f0958f2f3632}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate TEMP_Fuel"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{FA21ED2E-140F-4166-B9DD-D68D04780833}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [ODS].[dbo].[TEMP_Fuel] ;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\LOAD ODS.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{CB90A4C3-C0C2-4912-9952-117EE033896E}"
+          DTS:From="Package\LOAD ODS\Truncate TEMP_Fuel"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\LOAD ODS\Foreach Cars Files" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Start LOG"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3E1A3BEA-82F9-4F69-826F-6441784FD3F5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Start LOG"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FA21ED2E-140F-4166-B9DD-D68D04780833}"
+          SQLTask:SqlStatementSource="EXEC InsertStartLogg ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::StartTime"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{63FC1A41-5E57-40FB-870C-2ADF563083B0}"
+      DTS:From="Package\LOAD ODS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\LOAD Dim_Fuel" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{3EAB335F-3206-4741-9285-728DAA67F479}"
+      DTS:From="Package\LOAD Dim_Fuel"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\End LOG" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{850C1F6B-B262-41FA-9FAC-A0AC5527D4F8}"
+      DTS:From="Package\Start LOG"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\LOAD ODS" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{DB40C6CD-ED16-4B42-AB29-30C7E5801479}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{D7D03EEA-88AF-445A-9D62-7F468B44995D}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\ErrorLOG"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{26cd1d03-7e7e-4c37-8dc5-0463baea4ee2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ErrorLOG"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{FA21ED2E-140F-4166-B9DD-D68D04780833}"
+              SQLTask:SqlStatementSource="EXEC InsertErrorLog ?, ?;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\End LOG"
+          TopLeft="737.499959704778,463.466663605107" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel"
+          TopLeft="49.7999745935214,19.5999985174338" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\LOAD Dim_Fuel\NB_Lignes_Dim_Fuel"
+          TopLeft="57.2999741837395,104.533331260151" />
+        <EdgeLayout
+          Id="Package\LOAD Dim_Fuel.PrecedenceConstraints[Constraint]"
+          TopLeft="135.799974593521,61.1999985174338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.0999995902181,43.3333327427176"
+              Start="0,0"
+              End="11.0999995902181,35.8333327427176">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.6666663713588" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.6666663713588"
+                    Point2="0,21.6666663713588"
+                    Point3="4,21.6666663713588" />
+                  <mssgle:LineSegment
+                    End="7.09999959021806,21.6666663713588" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.09999959021806,21.6666663713588"
+                    Point2="11.0999995902181,21.6666663713588"
+                    Point3="11.0999995902181,25.6666663713588" />
+                  <mssgle:LineSegment
+                    End="11.0999995902181,35.8333327427176" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="256.8,200.8"
+          Size="256.8,244"
+          Id="Package\LOAD Dim_Fuel"
+          TopLeft="675.83329640743,162.599999114077" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\LOAD ODS\Foreach Cars Files\Archive Files"
+          TopLeft="193.5666372079,193.46666429215" />
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\LOAD ODS\Foreach Cars Files\Get File Name"
+          TopLeft="174.166636388337,37.2666652503945" />
+        <NodeLayout
+          Size="187.2,41.6"
+          Id="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel"
+          TopLeft="9.8666564676499,141.799997016788" />
+        <NodeLayout
+          Size="189.6,41.6"
+          Id="Package\LOAD ODS\Foreach Cars Files\NB_Lignes_TEMP_Fuel"
+          TopLeft="64.0333201747806,292.599995968143" />
+        <EdgeLayout
+          Id="Package\LOAD ODS\Foreach Cars Files.PrecedenceConstraints[Constraint]"
+          TopLeft="246.966636388337,78.8666652503945">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-143.499979920687,62.9333317663934"
+              Start="0,0"
+              End="-143.499979920687,55.4333317663934">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.4666658831967" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.4666658831967"
+                    Point2="0,31.4666658831967"
+                    Point3="-4,31.4666658831967" />
+                  <mssgle:LineSegment
+                    End="-139.499979920687,31.4666658831967" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-139.499979920687,31.4666658831967"
+                    Point2="-143.499979920687,31.4666658831967"
+                    Point3="-143.499979920687,35.4666658831967" />
+                  <mssgle:LineSegment
+                    End="-143.499979920687,55.4333317663934" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LOAD ODS\Foreach Cars Files.PrecedenceConstraints[Constraint 1]"
+          TopLeft="197.06665646765,162.599997016788">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="65.2999807402499,30.8666672753626"
+              Start="0,0"
+              End="65.2999807402499,23.3666672753626">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="61.2999807402499,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.2999807402499,0"
+                    Point2="65.2999807402499,0"
+                    Point3="65.2999807402499,4" />
+                  <mssgle:LineSegment
+                    End="65.2999807402499,23.3666672753626" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LOAD ODS\Foreach Cars Files.PrecedenceConstraints[Constraint 2]"
+          TopLeft="103.46665646765,183.399997016788">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55.3666637071307,109.199998951355"
+              Start="0,0"
+              End="55.3666637071307,101.699998951355">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5999994756777" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50.5999994756777"
+                    Point2="0,54.5999994756777"
+                    Point3="4,54.5999994756777" />
+                  <mssgle:LineSegment
+                    End="51.3666637071307,54.5999994756777" />
+                  <mssgle:CubicBezierSegment
+                    Point1="51.3666637071307,54.5999994756777"
+                    Point2="55.3666637071307,54.5999994756777"
+                    Point3="55.3666637071307,58.5999994756777" />
+                  <mssgle:LineSegment
+                    End="55.3666637071307,101.699998951355" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="357.6,379.2"
+          Size="357.6,422.4"
+          Id="Package\LOAD ODS\Foreach Cars Files"
+          TopLeft="20.4333130718938,107.433336141771" />
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\LOAD ODS\Truncate TEMP_Fuel"
+          TopLeft="109.299978554747,23.0666660278372" />
+        <EdgeLayout
+          Id="Package\LOAD ODS.PrecedenceConstraints[Constraint]"
+          TopLeft="198.46664581332,64.6666660278372">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.7666701139342"
+              Start="0,0"
+              End="0,35.2666701139342">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.2666701139342" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="396.8,619.2"
+          Size="396.8,662.4"
+          Id="Package\LOAD ODS"
+          TopLeft="174.16665715062,24.0666568250792" />
+        <NodeLayout
+          Size="124.8,41.6"
+          Id="Package\Start LOG"
+          TopLeft="27.4999984974664,420.866663984789" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="570.96665715062,355.266656825079">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="104.86663925681,-70.6666577110022"
+              Start="0,0"
+              End="97.36663925681,-70.6666577110022">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="48.433319628405,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="48.433319628405,0"
+                    Point2="52.433319628405,0"
+                    Point3="52.433319628405,-4" />
+                  <mssgle:LineSegment
+                    End="52.433319628405,-66.6666577110022" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52.433319628405,-66.6666577110022"
+                    Point2="52.433319628405,-70.6666577110022"
+                    Point3="56.433319628405,-70.6666577110022" />
+                  <mssgle:LineSegment
+                    End="97.36663925681,-70.6666577110022" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="801.266628056104,406.599999114077">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.8666644910306"
+              Start="0,0"
+              End="0,49.3666644910306">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.3666644910306" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="89.8999984974664,420.866663984789">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84.2666586531536,-65.6000071597094"
+              Start="0,0"
+              End="76.7666586531536,-65.6000071597094">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-61.6000071597094" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-61.6000071597094"
+                    Point2="0,-65.6000071597094"
+                    Point3="4,-65.6000071597094" />
+                  <mssgle:LineSegment
+                    End="76.7666586531536,-65.6000071597094" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="123.2,41.6"
+          Id="Package.EventHandlers[OnError]\ErrorLOG"
+          TopLeft="542.999991908669,262.999996080995" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Update Dim_Fuel"
+          TopLeft="475.833307334947,471.766663424305" />
+        <NodeLayout
+          Size="141.6,41.6"
+          Id="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Unicity Sheck"
+          TopLeft="434.499975959461,329.33333104319" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Sort By Fuel Type"
+          TopLeft="398.666644583974,167.266665503515" />
+        <NodeLayout
+          Size="152.8,55.2"
+          Id="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data"
+          TopLeft="391.666645266944,31.1999997830391" />
+        <EdgeLayout
+          Id="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel.Paths[Aggregate Output 1]"
+          TopLeft="505.299975959461,370.93333104319">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50.1333313754864,100.833332381116"
+              Start="0,0"
+              End="50.1333313754864,93.3333323811156">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.4166661905578" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.4166661905578"
+                    Point2="0,50.4166661905578"
+                    Point3="4,50.4166661905578" />
+                  <mssgle:LineSegment
+                    End="46.1333313754864,50.4166661905578" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46.1333313754864,50.4166661905578"
+                    Point2="50.1333313754864,50.4166661905578"
+                    Point3="50.1333313754864,54.4166661905578" />
+                  <mssgle:LineSegment
+                    End="50.1333313754864,93.3333323811156" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel.Paths[Sort Output]"
+          TopLeft="479.466644583974,208.866665503515">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25.8333313754869,120.466665539675"
+              Start="0,0"
+              End="25.8333313754869,112.966665539675">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.2333327698375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.2333327698375"
+                    Point2="0,60.2333327698375"
+                    Point3="4,60.2333327698375" />
+                  <mssgle:LineSegment
+                    End="21.8333313754869,60.2333327698375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.8333313754869,60.2333327698375"
+                    Point2="25.8333313754869,60.2333327698375"
+                    Point3="25.8333313754869,64.2333327698375" />
+                  <mssgle:LineSegment
+                    End="25.8333313754869,112.966665539675" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel.Paths[OLE DB Source Output]"
+          TopLeft="468.066645266944,86.3999997830391">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.3999993170298,80.8666657204755"
+              Start="0,0"
+              End="11.3999993170298,73.3666657204755">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.4333328602377" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.4333328602377"
+                    Point2="0,40.4333328602377"
+                    Point3="4,40.4333328602377" />
+                  <mssgle:LineSegment
+                    End="7.39999931702977,40.4333328602377" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.39999931702977,40.4333328602377"
+                    Point2="11.3999993170298,40.4333328602377"
+                    Point3="11.3999993170298,44.4333328602377" />
+                  <mssgle:LineSegment
+                    End="11.3999993170298,73.3666657204755" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOAD Dim_Fuel\Insert Into Dim_Fuel\Read Cars Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\NB_Lignes_Source"
+          TopLeft="426.666643354628,149.933332290715" />
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel"
+          TopLeft="703.333294904895,357.93333084431" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\ADD File Name"
+          TopLeft="158.333324682382,157.733332236476" />
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source"
+          TopLeft="65.5,65.5" />
+        <EdgeLayout
+          Id="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel.Paths[Excel Source Output]"
+          TopLeft="135.5,107.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.0333246823819,50.6333322364758"
+              Start="0,0"
+              End="98.0333246823819,43.1333322364758">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.3166661182379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.3166661182379"
+                    Point2="0,25.3166661182379"
+                    Point3="4,25.3166661182379" />
+                  <mssgle:LineSegment
+                    End="94.0333246823819,25.3166661182379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.0333246823819,25.3166661182379"
+                    Point2="98.0333246823819,25.3166661182379"
+                    Point3="98.0333246823819,29.3166661182379" />
+                  <mssgle:LineSegment
+                    End="98.0333246823819,43.1333322364758" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel.Paths[Derived Column Output]"
+          TopLeft="308.733324682382,174.633332263596">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="117.933318672246,0"
+              Start="0,0"
+              End="110.433318672246,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="110.433318672246,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Aggregate"
+          TopLeft="609.666640212967,258.099999077916" />
+        <EdgeLayout
+          Id="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel.Paths[Row Count Output 1]"
+          TopLeft="510.666643354628,191.533332290715">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="162.199996858339,66.5666667872008"
+              Start="0,0"
+              End="162.199996858339,59.0666667872008">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.2833333936004" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.2833333936004"
+                    Point2="0,33.2833333936004"
+                    Point3="4,33.2833333936004" />
+                  <mssgle:LineSegment
+                    End="158.199996858339,33.2833333936004" />
+                  <mssgle:CubicBezierSegment
+                    Point1="158.199996858339,33.2833333936004"
+                    Point2="162.199996858339,33.2833333936004"
+                    Point3="162.199996858339,37.2833333936004" />
+                  <mssgle:LineSegment
+                    End="162.199996858339,59.0666667872008" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel.Paths[Aggregate Output 1]"
+          TopLeft="672.866640212967,299.699999077916">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="120.866654691928,58.2333317663933"
+              Start="0,0"
+              End="120.866654691928,50.7333317663933">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.1166658831967" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.1166658831967"
+                    Point2="0,29.1166658831967"
+                    Point3="4,29.1166658831967" />
+                  <mssgle:LineSegment
+                    End="116.866654691928,29.1166658831967" />
+                  <mssgle:CubicBezierSegment
+                    Point1="116.866654691928,29.1166658831967"
+                    Point2="120.866654691928,29.1166658831967"
+                    Point3="120.866654691928,33.1166658831967" />
+                  <mssgle:LineSegment
+                    End="120.866654691928,50.7333317663933" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\insert into TEMP_Fuel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOAD ODS\Foreach Cars Files\Load ODS_TEMP_Fuel\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,948 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/8/2024 9:29:33 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="TN3548652W1"
+  DTS:CreatorName="MEA\BU638KR"
+  DTS:DTSID="{D4BCE247-E12F-4C50-8B1C-74C2B5E2CAE5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="8192"
+  DTS:ObjectName="DWH_DimBrand"
+  DTS:PackageType="5"
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{79E76A0B-A4BB-4D5E-82AE-4F4F00C92839}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FC545099-A987-4B60-AC8A-C2DA5FA25D23}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_DBTIMESTAMP) GETDATE()"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EndTime">
+      <DTS:VariableValue
+        DTS:DataType="7">6/9/2024 11:20:14 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0AB6A944-B361-41A8-AC98-D14D6AEF87B7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="NBLigne_Dim_Brand">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\End LOG"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{01F8A264-0C59-4A18-9414-7FBA74E63BD8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="End LOG"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4323D3A4-DB94-4FA8-929B-34A4E64D937F}"
+          SQLTask:SqlStatementSource="EXEC [ODS].[dbo].[InsertEndLogg] ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::EndTime"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::NBLigne_Dim_Brand"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\LOAD Dim_Brand"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{344F0309-7925-44E5-B261-477032EB97E0}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LOAD Dim_Brand">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{7785734C-C414-4C04-B9D3-49AE25F0CCF8}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Insert Into Dim_Brand"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{A7844EF4-1B46-4080-A44E-22E21E885F24}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="ConnectionString">
+              <DTS:VariableValue
+                DTS:DataType="8">Server=TN3548652W1;DataBase=DataWH;Integrated Security=True;</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Insert Into Dim_Brand"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Dim_Brand]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Connections[OleDbConnection]"
+                      connectionManagerID="{4323D3A4-DB94-4FA8-929B-34A4E64D937F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[DWH manager]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Inputs[OLE DB Destination Input].Columns[BrandKey]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="BrandKey"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Inputs[OLE DB Destination Input].ExternalColumns[BrandKey]"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name.Outputs[Sort Output].Columns[BrandKey]" />
+                        <inputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Inputs[OLE DB Destination Input].Columns[BrandName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="BrandName"
+                          cachedSortKeyPosition="2"
+                          externalMetadataColumnId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Inputs[OLE DB Destination Input].ExternalColumns[BrandName]"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name.Outputs[Sort Output].Columns[BrandName]" />
+                        <inputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="StartDate"
+                          externalMetadataColumnId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name.Outputs[Sort Output].Columns[StartDate]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Inputs[OLE DB Destination Input].ExternalColumns[BrandID]"
+                          dataType="i4"
+                          name="BrandID" />
+                        <externalMetadataColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Inputs[OLE DB Destination Input].ExternalColumns[BrandKey]"
+                          dataType="wstr"
+                          length="255"
+                          name="BrandKey" />
+                        <externalMetadataColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Inputs[OLE DB Destination Input].ExternalColumns[BrandName]"
+                          dataType="wstr"
+                          length="255"
+                          name="BrandName" />
+                        <externalMetadataColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                          dataType="dbTimeStamp"
+                          name="StartDate" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Read Cars Data"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Cars Data]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+    [BrandKey],
+    [Brand] AS BrandName,
+    GETDATE() AS StartDate
+FROM [ODS].[dbo].[Cars Data]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Connections[OleDbConnection]"
+                      connectionManagerID="{FA21ED2E-140F-4166-B9DD-D68D04780833}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ODS manager]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].Columns[BrandKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].ExternalColumns[BrandKey]"
+                          length="255"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].Columns[BrandKey]"
+                          name="BrandKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].Columns[BrandName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].ExternalColumns[BrandName]"
+                          length="255"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].Columns[BrandName]"
+                          name="BrandName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].Columns[StartDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].Columns[StartDate]"
+                          name="StartDate"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].ExternalColumns[BrandKey]"
+                          dataType="wstr"
+                          length="255"
+                          name="BrandKey" />
+                        <externalMetadataColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].ExternalColumns[BrandName]"
+                          dataType="wstr"
+                          length="255"
+                          name="BrandName" />
+                        <externalMetadataColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                          dataType="dbTimeStamp"
+                          name="StartDate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[BrandKey]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[BrandKey]"
+                          name="BrandKey" />
+                        <outputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[BrandName]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[BrandName]"
+                          name="BrandName" />
+                        <outputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                          name="StartDate" />
+                        <outputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort By Brand Name"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name.Inputs[Sort Input].Columns[BrandKey]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="BrandKey"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].Columns[BrandKey]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name.Inputs[Sort Input].Columns[BrandName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="BrandName"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].Columns[BrandName]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name.Inputs[Sort Input].Columns[StartDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="StartDate"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].Columns[StartDate]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name.Outputs[Sort Output].Columns[BrandKey]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name.Outputs[Sort Output].Columns[BrandKey]"
+                          name="BrandKey"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].Columns[BrandKey]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name.Outputs[Sort Output].Columns[BrandName]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name.Outputs[Sort Output].Columns[BrandName]"
+                          name="BrandName"
+                          sortKeyPosition="2">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].Columns[BrandName]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name.Outputs[Sort Output].Columns[StartDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name.Outputs[Sort Output].Columns[StartDate]"
+                          name="StartDate">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output].Columns[StartDate]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand.Paths[OLE DB Source Output]"
+                  endId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name.Inputs[Sort Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\LOAD Dim_Brand\Insert Into Dim_Brand.Paths[Sort Output]"
+                  endId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand.Inputs[OLE DB Destination Input]"
+                  name="Sort Output"
+                  startId="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name.Outputs[Sort Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\LOAD Dim_Brand\NbLigne_Dim_Brand"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A9B3134A-2D77-4C43-BA8B-074D9A2F2CA5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="NbLigne_Dim_Brand"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{4323D3A4-DB94-4FA8-929B-34A4E64D937F}"
+              SQLTask:SqlStatementSource="SELECT COUNT(*) FROM Dim_Brand&#xA;"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::NBLigne_Dim_Brand" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\LOAD Dim_Brand.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{8CEE29D3-F125-4FC6-B7F0-77605A2A530E}"
+          DTS:From="Package\LOAD Dim_Brand\Insert Into Dim_Brand"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\LOAD Dim_Brand\NbLigne_Dim_Brand" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Start LOG"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C115FB41-1D8E-4C00-956C-1975FEE3CFE2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Start LOG"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FA21ED2E-140F-4166-B9DD-D68D04780833}"
+          SQLTask:SqlStatementSource="EXEC InsertStartLogg ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="System::StartTime"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{80B6F095-94CC-4B20-88DF-33628404BBF5}"
+      DTS:From="Package\Start LOG"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\LOAD Dim_Brand" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{D585EEEB-C005-482A-A05F-04A9966D3596}"
+      DTS:From="Package\LOAD Dim_Brand"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\End LOG" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{691441FD-BB84-4262-A525-7EB6CAA2FB83}"
+      DTS:EventID="137438953"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{D6F26246-4115-432F-90CB-A005BFF9F168}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Error LOG"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2330DBA3-BFC7-4C7C-9C1D-E753D2F5A4E5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Error LOG"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{FA21ED2E-140F-4166-B9DD-D68D04780833}"
+              SQLTask:SqlStatementSource="EXEC InsertErrorLog ?, ?;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\End LOG"
+          TopLeft="765.833291490047,155.133332254556" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\LOAD Dim_Brand\Insert Into Dim_Brand"
+          TopLeft="48.7999814232196,10.6666645452713" />
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\LOAD Dim_Brand\NbLigne_Dim_Brand"
+          TopLeft="55.8999771888069,114.066665033434" />
+        <EdgeLayout
+          Id="Package\LOAD Dim_Brand.PrecedenceConstraints[Constraint]"
+          TopLeft="140.949979306013,52.2666645452713">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.8000004881625"
+              Start="0,0"
+              End="0,54.3000004881625">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.3000004881625" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="256,210.4"
+          Size="256,253.6"
+          Id="Package\LOAD Dim_Brand"
+          TopLeft="347.499981013438,85.7999994033575" />
+        <NodeLayout
+          Size="124.8,41.6"
+          Id="Package\Start LOG"
+          TopLeft="101.666661111845,149.066665630076" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="226.466661111845,169.866665630076">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="121.033319901593,42.7333337732815"
+              Start="0,0"
+              End="113.533319901593,42.7333337732815">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="56.5166599507965,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56.5166599507965,0"
+                    Point2="60.5166599507965,0"
+                    Point3="60.5166599507965,4" />
+                  <mssgle:LineSegment
+                    End="60.5166599507965,38.7333337732815" />
+                  <mssgle:CubicBezierSegment
+                    Point1="60.5166599507965,38.7333337732815"
+                    Point2="60.5166599507965,42.7333337732815"
+                    Point3="64.5166599507965,42.7333337732815" />
+                  <mssgle:LineSegment
+                    End="113.533319901593,42.7333337732815" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="603.499981013438,212.599999403358">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="162.333310476609,-36.6666671488015"
+              Start="0,0"
+              End="154.833310476609,-36.6666671488015">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="77.1666552383045,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="77.1666552383045,0"
+                    Point2="81.1666552383045,0"
+                    Point3="81.1666552383045,-4" />
+                  <mssgle:LineSegment
+                    End="81.1666552383045,-32.6666671488015" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.1666552383045,-32.6666671488015"
+                    Point2="81.1666552383045,-36.6666671488015"
+                    Point3="85.1666552383045,-36.6666671488015" />
+                  <mssgle:LineSegment
+                    End="154.833310476609,-36.6666671488015" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package.EventHandlers[OnError]\Error LOG"
+          TopLeft="293.999995619059,169.999997466803" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\LOAD Dim_Brand\Insert Into Dim_Brand">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data"
+          TopLeft="427.499976642431,67.5999995299181" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand"
+          TopLeft="406.66664444738,430.733330338068" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Sort By Brand Name"
+          TopLeft="442.499975822867,240.933331657913" />
+        <EdgeLayout
+          Id="Package\LOAD Dim_Brand\Insert Into Dim_Brand.Paths[Sort Output]"
+          TopLeft="529.299975822867,282.533331657913">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-33.0333313754866,148.199998680154"
+              Start="0,0"
+              End="-33.0333313754866,140.699998680154">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.0999993400772" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,70.0999993400772"
+                    Point2="0,74.0999993400772"
+                    Point3="-4,74.0999993400772" />
+                  <mssgle:LineSegment
+                    End="-29.0333313754866,74.0999993400772" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.0333313754866,74.0999993400772"
+                    Point2="-33.0333313754866,74.0999993400772"
+                    Point3="-33.0333313754866,78.0999993400772" />
+                  <mssgle:LineSegment
+                    End="-33.0333313754866,140.699998680154" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LOAD Dim_Brand\Insert Into Dim_Brand.Paths[OLE DB Source Output]"
+          TopLeft="503.899976642431,109.199999529918">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25.3999991804359,131.733332127995"
+              Start="0,0"
+              End="25.3999991804359,124.233332127995">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.8666660639975" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61.8666660639975"
+                    Point2="0,65.8666660639975"
+                    Point3="4,65.8666660639975" />
+                  <mssgle:LineSegment
+                    End="21.3999991804359,65.8666660639975" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.3999991804359,65.8666660639975"
+                    Point2="25.3999991804359,65.8666660639975"
+                    Point3="25.3999991804359,69.8666660639975" />
+                  <mssgle:LineSegment
+                    End="25.3999991804359,124.233332127995" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Read Cars Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOAD Dim_Brand\Insert Into Dim_Brand\Insert Into Dim_Brand">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

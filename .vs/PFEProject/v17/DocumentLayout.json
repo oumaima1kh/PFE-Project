@@ -1,0 +1,130 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\BU638KR\\source\\repos\\PFEProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0C62EA7C-909C-4891-8E31-70077D7D6F31}|PFEProject.dtproj|C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_FACT_Stock.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{0C62EA7C-909C-4891-8E31-70077D7D6F31}|PFEProject.dtproj|solutionrelative:DWH_FACT_Stock.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C62EA7C-909C-4891-8E31-70077D7D6F31}|PFEProject.dtproj|C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_Fact_CarSales.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{0C62EA7C-909C-4891-8E31-70077D7D6F31}|PFEProject.dtproj|solutionrelative:DWH_Fact_CarSales.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C62EA7C-909C-4891-8E31-70077D7D6F31}|PFEProject.dtproj|C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_Dim_VehicleCategory.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{0C62EA7C-909C-4891-8E31-70077D7D6F31}|PFEProject.dtproj|solutionrelative:DWH_Dim_VehicleCategory.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C62EA7C-909C-4891-8E31-70077D7D6F31}|PFEProject.dtproj|C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_Dim_PromoType.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{0C62EA7C-909C-4891-8E31-70077D7D6F31}|PFEProject.dtproj|solutionrelative:DWH_Dim_PromoType.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C62EA7C-909C-4891-8E31-70077D7D6F31}|PFEProject.dtproj|C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_Dim_Option.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{0C62EA7C-909C-4891-8E31-70077D7D6F31}|PFEProject.dtproj|solutionrelative:DWH_Dim_Option.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C62EA7C-909C-4891-8E31-70077D7D6F31}|PFEProject.dtproj|C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_Dim_Model.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{0C62EA7C-909C-4891-8E31-70077D7D6F31}|PFEProject.dtproj|solutionrelative:DWH_Dim_Model.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C62EA7C-909C-4891-8E31-70077D7D6F31}|PFEProject.dtproj|C:\\Users\\BU638KR\\source\\repos\\PFEProject\\Project.params||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{0C62EA7C-909C-4891-8E31-70077D7D6F31}|PFEProject.dtproj|solutionrelative:Project.params||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DWH_FACT_Stock.dtsx [Design]",
+              "DocumentMoniker": "C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_FACT_Stock.dtsx",
+              "RelativeDocumentMoniker": "DWH_FACT_Stock.dtsx",
+              "ToolTip": "C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_FACT_Stock.dtsx [Design]",
+              "RelativeToolTip": "DWH_FACT_Stock.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMxSURBVDhPjVRLTBNRFD3TH62lQEG0BaoRJfJRoxEV48KoiTEaFsrKBS5MXLhzZdzqRqM7ExZujQt36sLEqDHRuPBDooYipSjV0tLyael0ZtrpTDvPO9OxpXzEk9y89\u002B6bd\u002Bbcz3scCLfuPfjY2dVzSJ//C6IkI7mw\u002BOLr6IeRp4/uPzfdVTDGbOYUPZ1tCLS1mKu18f7zJMYmJgckFdyFS9fw6tnDtwKfFs1tgOM4qz6eOD145cC\u002B3vYOXws2OevWtUhsHmpJc9a73c1zKb69dYsvnRezaUngcwYhwWKO/w2r1QqNseb5xfRJr69z2FXf1GVuGaghlJUS5jOFiklyEQW16hNlDT8iMXwLhuCpdztis4kLgijtMo8bqORQR2hGwJMPSXMFnNrfitYGBx6/ixtrgS\u002BAVOHcjgBUtYiXb94a/uWoUagxUqlZkGtsg9TUDtXpKftKQK7BB9bRjd6DB3H8cB/sdrteA/NkFatzyDRwBQmcTFZUTB8jXx42tQCP04Gmxoayfw3UEDa67ejrcGOPt4i9XhWtTg0elw19gXrsaS6ir1GF11FCnhSvh5oc7vS7DVuJ4RMBUOSQVWpusmgyXd5YA//dNjqZQEZ1Qa5I7WN3kHeDHP5MSHj4ZqZiY7\u002BzKGlAngh0ZdkCQ4ZMVDhSTGQbFYWnOzUekxBcsmOMLJmzGhUWqDa8QVZWKCkMrER/oWKtxOqQOQtYnQvM6YbC2UjNX2XAkgyksgrSvEztZYen2Q9/595eb2D/SWza3q8fryG0UAROiwZXJgHXUhwlUayQZYgsk2eIz2XxayaDnL0NvQNnMXj55vX\u002Bobuvse3iiM5RU\u002BXugAdXW1x03ShnFJFGbwcJMsLUR8oIVMppx2YXho75sUh/ic9JSEZTJsMyhaHpWbwf/Y6x72FMTIYxPRXG1MQEpsaDmA0HkZkOQo6NQ8vOGd9bKH/5nIrUUh6CZF4AgqFQUYr4EgxjIbV\u002Bf/2FrWkb6rbvRjQhYirKI/SbRzJVeb3KhJHIj/HFrMyi0Zjh/Be2dh31K5wvwKQ8IgkBv4g4vlAlXN1IG8F35gbaz982V1VIkU8I3TnyByuphR8gq7UuAAAAAElFTkSuQmCC",
+              "WhenOpened": "2024-07-24T12:08:00.827Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DWH_Fact_CarSales.dtsx [Design]",
+              "DocumentMoniker": "C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_Fact_CarSales.dtsx",
+              "RelativeDocumentMoniker": "DWH_Fact_CarSales.dtsx",
+              "ToolTip": "C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_Fact_CarSales.dtsx [Design]",
+              "RelativeToolTip": "DWH_Fact_CarSales.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMxSURBVDhPjVRLTBNRFD3TH62lQEG0BaoRJfJRoxEV48KoiTEaFsrKBS5MXLhzZdzqRqM7ExZujQt36sLEqDHRuPBDooYipSjV0tLyael0ZtrpTDvPO9OxpXzEk9y89\u002B6bd\u002Bbcz3scCLfuPfjY2dVzSJ//C6IkI7mw\u002BOLr6IeRp4/uPzfdVTDGbOYUPZ1tCLS1mKu18f7zJMYmJgckFdyFS9fw6tnDtwKfFs1tgOM4qz6eOD145cC\u002B3vYOXws2OevWtUhsHmpJc9a73c1zKb69dYsvnRezaUngcwYhwWKO/w2r1QqNseb5xfRJr69z2FXf1GVuGaghlJUS5jOFiklyEQW16hNlDT8iMXwLhuCpdztis4kLgijtMo8bqORQR2hGwJMPSXMFnNrfitYGBx6/ixtrgS\u002BAVOHcjgBUtYiXb94a/uWoUagxUqlZkGtsg9TUDtXpKftKQK7BB9bRjd6DB3H8cB/sdrteA/NkFatzyDRwBQmcTFZUTB8jXx42tQCP04Gmxoayfw3UEDa67ejrcGOPt4i9XhWtTg0elw19gXrsaS6ir1GF11FCnhSvh5oc7vS7DVuJ4RMBUOSQVWpusmgyXd5YA//dNjqZQEZ1Qa5I7WN3kHeDHP5MSHj4ZqZiY7\u002BzKGlAngh0ZdkCQ4ZMVDhSTGQbFYWnOzUekxBcsmOMLJmzGhUWqDa8QVZWKCkMrER/oWKtxOqQOQtYnQvM6YbC2UjNX2XAkgyksgrSvEztZYen2Q9/595eb2D/SWza3q8fryG0UAROiwZXJgHXUhwlUayQZYgsk2eIz2XxayaDnL0NvQNnMXj55vX\u002Bobuvse3iiM5RU\u002BXugAdXW1x03ShnFJFGbwcJMsLUR8oIVMppx2YXho75sUh/ic9JSEZTJsMyhaHpWbwf/Y6x72FMTIYxPRXG1MQEpsaDmA0HkZkOQo6NQ8vOGd9bKH/5nIrUUh6CZF4AgqFQUYr4EgxjIbV\u002Bf/2FrWkb6rbvRjQhYirKI/SbRzJVeb3KhJHIj/HFrMyi0Zjh/Be2dh31K5wvwKQ8IgkBv4g4vlAlXN1IG8F35gbaz982V1VIkU8I3TnyByuphR8gq7UuAAAAAElFTkSuQmCC",
+              "WhenOpened": "2024-07-24T11:44:40.49Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DWH_Dim_VehicleCategory.dtsx [Design]",
+              "DocumentMoniker": "C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_Dim_VehicleCategory.dtsx",
+              "RelativeDocumentMoniker": "DWH_Dim_VehicleCategory.dtsx",
+              "ToolTip": "C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_Dim_VehicleCategory.dtsx [Design]",
+              "RelativeToolTip": "DWH_Dim_VehicleCategory.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMxSURBVDhPjVRLTBNRFD3TH62lQEG0BaoRJfJRoxEV48KoiTEaFsrKBS5MXLhzZdzqRqM7ExZujQt36sLEqDHRuPBDooYipSjV0tLyael0ZtrpTDvPO9OxpXzEk9y89\u002B6bd\u002Bbcz3scCLfuPfjY2dVzSJ//C6IkI7mw\u002BOLr6IeRp4/uPzfdVTDGbOYUPZ1tCLS1mKu18f7zJMYmJgckFdyFS9fw6tnDtwKfFs1tgOM4qz6eOD145cC\u002B3vYOXws2OevWtUhsHmpJc9a73c1zKb69dYsvnRezaUngcwYhwWKO/w2r1QqNseb5xfRJr69z2FXf1GVuGaghlJUS5jOFiklyEQW16hNlDT8iMXwLhuCpdztis4kLgijtMo8bqORQR2hGwJMPSXMFnNrfitYGBx6/ixtrgS\u002BAVOHcjgBUtYiXb94a/uWoUagxUqlZkGtsg9TUDtXpKftKQK7BB9bRjd6DB3H8cB/sdrteA/NkFatzyDRwBQmcTFZUTB8jXx42tQCP04Gmxoayfw3UEDa67ejrcGOPt4i9XhWtTg0elw19gXrsaS6ir1GF11FCnhSvh5oc7vS7DVuJ4RMBUOSQVWpusmgyXd5YA//dNjqZQEZ1Qa5I7WN3kHeDHP5MSHj4ZqZiY7\u002BzKGlAngh0ZdkCQ4ZMVDhSTGQbFYWnOzUekxBcsmOMLJmzGhUWqDa8QVZWKCkMrER/oWKtxOqQOQtYnQvM6YbC2UjNX2XAkgyksgrSvEztZYen2Q9/595eb2D/SWza3q8fryG0UAROiwZXJgHXUhwlUayQZYgsk2eIz2XxayaDnL0NvQNnMXj55vX\u002Bobuvse3iiM5RU\u002BXugAdXW1x03ShnFJFGbwcJMsLUR8oIVMppx2YXho75sUh/ic9JSEZTJsMyhaHpWbwf/Y6x72FMTIYxPRXG1MQEpsaDmA0HkZkOQo6NQ8vOGd9bKH/5nIrUUh6CZF4AgqFQUYr4EgxjIbV\u002Bf/2FrWkb6rbvRjQhYirKI/SbRzJVeb3KhJHIj/HFrMyi0Zjh/Be2dh31K5wvwKQ8IgkBv4g4vlAlXN1IG8F35gbaz982V1VIkU8I3TnyByuphR8gq7UuAAAAAElFTkSuQmCC",
+              "WhenOpened": "2024-07-24T10:14:08.477Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DWH_Dim_PromoType.dtsx [Design]",
+              "DocumentMoniker": "C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_Dim_PromoType.dtsx",
+              "RelativeDocumentMoniker": "DWH_Dim_PromoType.dtsx",
+              "ToolTip": "C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_Dim_PromoType.dtsx [Design]",
+              "RelativeToolTip": "DWH_Dim_PromoType.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMxSURBVDhPjVRLTBNRFD3TH62lQEG0BaoRJfJRoxEV48KoiTEaFsrKBS5MXLhzZdzqRqM7ExZujQt36sLEqDHRuPBDooYipSjV0tLyael0ZtrpTDvPO9OxpXzEk9y89\u002B6bd\u002Bbcz3scCLfuPfjY2dVzSJ//C6IkI7mw\u002BOLr6IeRp4/uPzfdVTDGbOYUPZ1tCLS1mKu18f7zJMYmJgckFdyFS9fw6tnDtwKfFs1tgOM4qz6eOD145cC\u002B3vYOXws2OevWtUhsHmpJc9a73c1zKb69dYsvnRezaUngcwYhwWKO/w2r1QqNseb5xfRJr69z2FXf1GVuGaghlJUS5jOFiklyEQW16hNlDT8iMXwLhuCpdztis4kLgijtMo8bqORQR2hGwJMPSXMFnNrfitYGBx6/ixtrgS\u002BAVOHcjgBUtYiXb94a/uWoUagxUqlZkGtsg9TUDtXpKftKQK7BB9bRjd6DB3H8cB/sdrteA/NkFatzyDRwBQmcTFZUTB8jXx42tQCP04Gmxoayfw3UEDa67ejrcGOPt4i9XhWtTg0elw19gXrsaS6ir1GF11FCnhSvh5oc7vS7DVuJ4RMBUOSQVWpusmgyXd5YA//dNjqZQEZ1Qa5I7WN3kHeDHP5MSHj4ZqZiY7\u002BzKGlAngh0ZdkCQ4ZMVDhSTGQbFYWnOzUekxBcsmOMLJmzGhUWqDa8QVZWKCkMrER/oWKtxOqQOQtYnQvM6YbC2UjNX2XAkgyksgrSvEztZYen2Q9/595eb2D/SWza3q8fryG0UAROiwZXJgHXUhwlUayQZYgsk2eIz2XxayaDnL0NvQNnMXj55vX\u002Bobuvse3iiM5RU\u002BXugAdXW1x03ShnFJFGbwcJMsLUR8oIVMppx2YXho75sUh/ic9JSEZTJsMyhaHpWbwf/Y6x72FMTIYxPRXG1MQEpsaDmA0HkZkOQo6NQ8vOGd9bKH/5nIrUUh6CZF4AgqFQUYr4EgxjIbV\u002Bf/2FrWkb6rbvRjQhYirKI/SbRzJVeb3KhJHIj/HFrMyi0Zjh/Be2dh31K5wvwKQ8IgkBv4g4vlAlXN1IG8F35gbaz982V1VIkU8I3TnyByuphR8gq7UuAAAAAElFTkSuQmCC",
+              "WhenOpened": "2024-07-24T10:01:13.655Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DWH_Dim_Option.dtsx [Design]",
+              "DocumentMoniker": "C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_Dim_Option.dtsx",
+              "RelativeDocumentMoniker": "DWH_Dim_Option.dtsx",
+              "ToolTip": "C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_Dim_Option.dtsx [Design]",
+              "RelativeToolTip": "DWH_Dim_Option.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMxSURBVDhPjVRLTBNRFD3TH62lQEG0BaoRJfJRoxEV48KoiTEaFsrKBS5MXLhzZdzqRqM7ExZujQt36sLEqDHRuPBDooYipSjV0tLyael0ZtrpTDvPO9OxpXzEk9y89\u002B6bd\u002Bbcz3scCLfuPfjY2dVzSJ//C6IkI7mw\u002BOLr6IeRp4/uPzfdVTDGbOYUPZ1tCLS1mKu18f7zJMYmJgckFdyFS9fw6tnDtwKfFs1tgOM4qz6eOD145cC\u002B3vYOXws2OevWtUhsHmpJc9a73c1zKb69dYsvnRezaUngcwYhwWKO/w2r1QqNseb5xfRJr69z2FXf1GVuGaghlJUS5jOFiklyEQW16hNlDT8iMXwLhuCpdztis4kLgijtMo8bqORQR2hGwJMPSXMFnNrfitYGBx6/ixtrgS\u002BAVOHcjgBUtYiXb94a/uWoUagxUqlZkGtsg9TUDtXpKftKQK7BB9bRjd6DB3H8cB/sdrteA/NkFatzyDRwBQmcTFZUTB8jXx42tQCP04Gmxoayfw3UEDa67ejrcGOPt4i9XhWtTg0elw19gXrsaS6ir1GF11FCnhSvh5oc7vS7DVuJ4RMBUOSQVWpusmgyXd5YA//dNjqZQEZ1Qa5I7WN3kHeDHP5MSHj4ZqZiY7\u002BzKGlAngh0ZdkCQ4ZMVDhSTGQbFYWnOzUekxBcsmOMLJmzGhUWqDa8QVZWKCkMrER/oWKtxOqQOQtYnQvM6YbC2UjNX2XAkgyksgrSvEztZYen2Q9/595eb2D/SWza3q8fryG0UAROiwZXJgHXUhwlUayQZYgsk2eIz2XxayaDnL0NvQNnMXj55vX\u002Bobuvse3iiM5RU\u002BXugAdXW1x03ShnFJFGbwcJMsLUR8oIVMppx2YXho75sUh/ic9JSEZTJsMyhaHpWbwf/Y6x72FMTIYxPRXG1MQEpsaDmA0HkZkOQo6NQ8vOGd9bKH/5nIrUUh6CZF4AgqFQUYr4EgxjIbV\u002Bf/2FrWkb6rbvRjQhYirKI/SbRzJVeb3KhJHIj/HFrMyi0Zjh/Be2dh31K5wvwKQ8IgkBv4g4vlAlXN1IG8F35gbaz982V1VIkU8I3TnyByuphR8gq7UuAAAAAElFTkSuQmCC",
+              "WhenOpened": "2024-07-24T09:54:15.919Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DWH_Dim_Model.dtsx [Design]",
+              "DocumentMoniker": "C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_Dim_Model.dtsx",
+              "RelativeDocumentMoniker": "DWH_Dim_Model.dtsx",
+              "ToolTip": "C:\\Users\\BU638KR\\source\\repos\\PFEProject\\DWH_Dim_Model.dtsx [Design]",
+              "RelativeToolTip": "DWH_Dim_Model.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMxSURBVDhPjVRLTBNRFD3TH62lQEG0BaoRJfJRoxEV48KoiTEaFsrKBS5MXLhzZdzqRqM7ExZujQt36sLEqDHRuPBDooYipSjV0tLyael0ZtrpTDvPO9OxpXzEk9y89\u002B6bd\u002Bbcz3scCLfuPfjY2dVzSJ//C6IkI7mw\u002BOLr6IeRp4/uPzfdVTDGbOYUPZ1tCLS1mKu18f7zJMYmJgckFdyFS9fw6tnDtwKfFs1tgOM4qz6eOD145cC\u002B3vYOXws2OevWtUhsHmpJc9a73c1zKb69dYsvnRezaUngcwYhwWKO/w2r1QqNseb5xfRJr69z2FXf1GVuGaghlJUS5jOFiklyEQW16hNlDT8iMXwLhuCpdztis4kLgijtMo8bqORQR2hGwJMPSXMFnNrfitYGBx6/ixtrgS\u002BAVOHcjgBUtYiXb94a/uWoUagxUqlZkGtsg9TUDtXpKftKQK7BB9bRjd6DB3H8cB/sdrteA/NkFatzyDRwBQmcTFZUTB8jXx42tQCP04Gmxoayfw3UEDa67ejrcGOPt4i9XhWtTg0elw19gXrsaS6ir1GF11FCnhSvh5oc7vS7DVuJ4RMBUOSQVWpusmgyXd5YA//dNjqZQEZ1Qa5I7WN3kHeDHP5MSHj4ZqZiY7\u002BzKGlAngh0ZdkCQ4ZMVDhSTGQbFYWnOzUekxBcsmOMLJmzGhUWqDa8QVZWKCkMrER/oWKtxOqQOQtYnQvM6YbC2UjNX2XAkgyksgrSvEztZYen2Q9/595eb2D/SWza3q8fryG0UAROiwZXJgHXUhwlUayQZYgsk2eIz2XxayaDnL0NvQNnMXj55vX\u002Bobuvse3iiM5RU\u002BXugAdXW1x03ShnFJFGbwcJMsLUR8oIVMppx2YXho75sUh/ic9JSEZTJsMyhaHpWbwf/Y6x72FMTIYxPRXG1MQEpsaDmA0HkZkOQo6NQ8vOGd9bKH/5nIrUUh6CZF4AgqFQUYr4EgxjIbV\u002Bf/2FrWkb6rbvRjQhYirKI/SbRzJVeb3KhJHIj/HFrMyi0Zjh/Be2dh31K5wvwKQ8IgkBv4g4vlAlXN1IG8F35gbaz982V1VIkU8I3TnyByuphR8gq7UuAAAAAElFTkSuQmCC",
+              "WhenOpened": "2024-07-24T09:49:35.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Project.params [Design]",
+              "DocumentMoniker": "C:\\Users\\BU638KR\\source\\repos\\PFEProject\\Project.params",
+              "RelativeDocumentMoniker": "Project.params",
+              "ToolTip": "C:\\Users\\BU638KR\\source\\repos\\PFEProject\\Project.params [Design]",
+              "RelativeToolTip": "Project.params [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-07-01T20:04:56.802Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
